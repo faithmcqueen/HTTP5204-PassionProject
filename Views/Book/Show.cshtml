@@ -1,0 +1,40 @@
+﻿@model BookClubMVC.Models.ViewModels.ShowBook
+
+@{
+    ViewBag.Title = "Show";
+}
+<!-- Book informatin here -->
+    <div class="btn_pgnav">
+        <a class="btn" href="/Book/List">Back to List</a>
+        <a class="btn" href="/Book/Update/@Model.book.BookID">Update Book</a>
+        <a class="delbtn" href="/Book/DeleteConfirm/@Model.book.BookID">Delete</a>
+    </div>
+<div class="details_contain">
+    <h1>@Model.book.Title</h1>
+    <p class="subhead">Written by: @Model.book.Author</p>
+    <p class="itempara">@Model.book.Description</p>
+</div>
+
+
+<!-- Review information here -->
+<div class="sectionhead">
+    <a class="btn" href="/Review/New">Leave a Review</a>
+    <h3>Reviews:</h3>
+</div>
+
+<!-- List of all reviews for BookID using a rendering loop-->
+@{
+    foreach (var review in @Model.reviews)
+    {
+        <p>@review.ReviewContent</p>
+        <span><a class="btn" href="/Member/Show/@review.MemberID">View Reviewer</a></span>
+        <span><a class="delbtn" href="/Review/DeleteConfirm/@review.ReviewID">Delete</a></span>
+
+
+    }
+}
+
+
+
+
+

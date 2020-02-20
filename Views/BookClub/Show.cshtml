@@ -1,0 +1,45 @@
+﻿@model BookClubMVC.Models.ViewModels.ShowBookClub
+
+@{
+    ViewBag.Title = "Show";
+}
+<!-- Book Club informatin here -->
+<h1>@Model.bookclub.ClubName</h1>
+<div class="btn_pgnav">
+    <a class="btn" href="/BookClub/List">Back to List</a>
+    <a class="btn " href="/BookClub/Update/@Model.bookclub.ClubID">Edit Book Club</a>
+    <a class="delbtn" href="/BookClub/DeleteConfirm/@Model.bookclub.ClubID">Delete Book Club</a>
+</div>
+<div class="details_contain">
+    <h3>Meeting Information:</h3>
+    <p class="subhead">Club meets on @Model.bookclub.MeetDay at @Model.bookclub.MeetTime</p>
+</div>
+
+<div class="section">
+    <h3 class="subhead">Currently Reading:</h3>
+    @{
+        foreach (var book in @Model.books)
+        {
+            <p><a href="/Book/Show/@book.BookID">@book.Title</a> by @book.Author</p>
+
+        }
+    }
+</div>
+<!-- List of all members in the book club-->
+<div class="section">
+    <h3 class="subhead">Current Members:</h3>
+    @{
+        foreach (var members in @Model.members)
+        {
+        <div>
+            <a href="/Member/Show/@members.MemberID" class="member">@members.FisrtName @members.LastName</a>
+            <a class="btn" href="/Member/Update/@members.MemberID">Edit</a>
+            <a class="delbtn" href="/Member/DeleteConfirm/@members.MemberID">Delete</a>
+        </div>
+        }
+    }
+</div>
+
+
+
+

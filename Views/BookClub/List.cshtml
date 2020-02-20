@@ -1,0 +1,28 @@
+﻿@model  List<BookClubMVC.Models.BookClub>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>All Book Clubs</h2>
+<!-- Add New Book button -->
+<div>
+    <a class="btn" href="/BookClub/New">Add New Club</a>
+    <!-- Search Bar for book clubs -->
+    <form class="searchform" action="/BookClub/List" method="get">
+        <input type="text" name="clubsearch" id="clubsearch" />
+        <input type="submit" value="Search" />
+    </form>
+</div>
+
+<!-- List of all book clubs using a rendering loop -->
+@{
+    foreach (var club in @Model)
+    {
+        <div class="contain_box">
+                <span class="itemheading"><a href="/BookClub/Show/@club.ClubID">@club.ClubName</a></span>
+                <span class="subhead">Meeting time: @club.MeetDay at @club.MeetTime</span>
+                <span><a class="btn" href="/Member/New">Join Club</a></span>
+        </div>
+    }
+}
+

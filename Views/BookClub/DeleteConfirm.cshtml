@@ -1,0 +1,11 @@
+﻿@model BookClubMVC.Models.BookClub
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete @Model.ClubName?</h2>
+    <a class="btn" href="/BookClub/List">Back to List</a>
+<form method="POST" action="/BookClub/Delete/@Model.ClubID">
+    <input type="submit" class="delbtn" value="Confirm" />
+</form>

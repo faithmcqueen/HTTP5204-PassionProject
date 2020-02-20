@@ -1,0 +1,47 @@
+﻿@model  BookClubMVC.Models.ViewModels.NewReview
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Leave A Review</h2>
+    <a class="btn" href="/Book/List">Back to Book List</a>
+<!-- Form to add new book to database -->
+    <div class="formcontain">
+        <form method="POST" action="/Review/New">
+            <div class="forminput">
+                <label for="BookID">Select a Book to Review:</label>
+                <select id="BookID" type="text" name="BookID">
+                    @{
+                        // a rendering loop to list all of the available books members can review
+                        foreach (var books in @Model.books)
+                        {
+                            <option value="@books.BookID">@books.Title</option>
+
+                        }
+                    }
+                </select>
+            </div>
+            <div class="forminput">
+                <label for="MemberID">Select a Member:</label>
+                <select id="MemberID" type="text" name="MemberID">
+                    @{
+                        // a rendering loop to list all of the available members who can leave a review
+                        foreach (var members in @Model.members)
+                        {
+                            <option value="@members.MemberID">@members.FisrtName @members.LastName</option>
+
+                        }
+                    }
+                </select>
+            </div>
+            <div class="forminput">
+                <label for="ReviewContent">Your Review:</label>
+                <textarea id="ReviewContent" name="ReviewContent"></textarea>
+            </div>
+            <div class="submit">
+                <input class="btn" type="submit" value="Add Review">
+            </div>
+        </form>
+
+    </div>
+

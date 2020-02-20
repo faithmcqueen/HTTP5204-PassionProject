@@ -1,0 +1,30 @@
+﻿@model BookClubMVC.Models.Book
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update @Model.Title</h2>
+<a class="btn" href="/Book/List">Back to List</a>
+<!-- Form to update the book information -->
+<div class="formcontain">
+    <form method="POST" action="/Book/Update/@Model.BookID" enctype="multipart/form-data">
+        <div class="forminput">
+            <label for="Title">Title:</label>
+            <input type="text" value="@Model.Title" id="Title" name="Title" />
+        </div>
+        <div class="forminput">
+            <label for="Title">Author:</label>
+            <input type="text" value="@Model.Author" id="Author" name="Author" />
+        </div>
+        <div class="forminput">
+            <label for="Description">Description:</label>
+            <textarea id="Description" name="Description">@Model.Description</textarea>
+        </div>
+        <div class="forminput">
+            <input class="btn" type="submit" value="Update Book">
+        </div>
+    </form>
+</div>
+
+

@@ -1,0 +1,121 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+/* STYLING FOR BOOK CLUB SYSTEM */
+
+.btn {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: cadetblue;
+    padding: 0px;
+}
+
+.btn:hover {
+    background-color: darkcyan;
+    color: #fff;
+}
+
+.delbtn {
+    color: #fff;
+    background-color: indianred;
+    border-radius: 4px;
+    text-transform: uppercase;
+    padding: 2px;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+.delbtn:hover {
+    color: #fff;
+    background-color: darkred;
+}
+
+.contain_box {
+    background-color: lightgray;
+    width: 50%;
+    padding-left: 5px;
+    padding-top: 0.5px;
+    padding-bottom: 0.5px;
+    margin: 10px 5px;
+}
+
+.searchform {
+    display: inline-block;
+    float: right;
+}
+
+.itemheading {
+    font-size: 20px;
+    display: block;
+}
+
+.subhead {
+    font-size: 18px;
+}
+
+.itempara {
+    font-size: 16px;
+    display: block;
+}
+
+p {
+    font-size: 16px;
+}
+
+.member {
+    font-size: 16px;
+}
+
+.btn_contain {
+    float: right;
+}
+
+.btn_pgnav {
+    float: right;
+    padding-top: 10px;
+}
+
+
+label {
+    display: block;
+    margin-top: 5px;
+}
+
+.updateform, newform {
+    width: 100%;
+}
+
+.formcontain {
+    margin: auto;
+}
+
+.submit {
+    margin-top: 10px;
+}
+
+textarea {
+    width: 50%;
+    height: 100px;
+}
+
+.details_contain {
+    padding-top: 20px;
+}

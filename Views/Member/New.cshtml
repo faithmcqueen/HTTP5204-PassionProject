@@ -1,0 +1,36 @@
+﻿@model  List<BookClubMVC.Models.BookClub>
+@{
+    ViewBag.Title = "New";
+}
+<h2>Join a Book Club!</h2>
+<div class="navbar">
+    <a class="navlink" href="/BookClub/List">Back to List</a>
+</div>
+<!-- Form to add new member to database -->
+<form method="POST" action="/Member/New">
+    <div class="forminput">
+        <label for="FisrtName">First Name:</label>
+        <input type="text" id="FisrtName" name="FisrtName" />
+    </div>
+    <div class="forminput">
+        <label for="LastName">Last Name:</label>
+        <input type="text" id="LastName" name="LastName" />
+    </div>
+    <div class="forminput">
+        <span>Please Select a Book Club to Join:</span>
+        <select id="ClubID" type="text" name="ClubID">
+            @{
+                // a rendering loop to list all of the available book clubs a member can join
+                foreach (var clubs in Model)
+                {
+                    <option value="@clubs.ClubID">@clubs.ClubName</option>
+
+                }
+            }
+        </select>
+    </div>
+    <div class="forminput">
+        <input type="submit" value="Join Club">
+    </div>
+
+</form>

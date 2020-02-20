@@ -1,0 +1,11 @@
+﻿@model BookClubMVC.Models.Review
+
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete your review?</h2>
+    <a class="btn" href="/Book/List">Back to List</a>
+<form method="POST" action="/Review/Delete/@Model.ReviewID">
+    <input class="delbtn" type="submit" value="Confirm" />
+</form>

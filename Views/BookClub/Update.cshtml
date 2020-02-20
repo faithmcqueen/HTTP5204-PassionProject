@@ -1,0 +1,41 @@
+﻿@model BookClubMVC.Models.BookClub
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update @Model.ClubName</h2>
+    <a class="btn" href="/BookClub/List">Back to List</a>
+
+<!-- Form to update the book information -->
+<div class="formcontain">
+    <form class="updateform" method="POST" action="/BookClub/Update/@Model.ClubID" enctype="multipart/form-data">
+        <div class="forminput">
+            <label for="ClubName">Club Name:</label>
+            <input type="text" value="@Model.ClubName" id="ClubName" name="ClubName" />
+        </div>
+        <div class="forminput">
+            <label for="MeetDay">Day of Meetings:</label>
+            <select id="MeetDay" name="MeetDay">
+                <option value="@Model.MeetDay">@Model.MeetDay</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+
+        </div>
+        <div class="forminput">
+            <label for="MeetTime">Meeting Time:</label>
+            <input type="text" id="MeetTime" name="MeetTime" value="@Model.MeetTime" />
+        </div>
+        <div class="submit">
+            <input class="btn" type="submit" value="Update Book Club">
+        </div>
+    </form>
+</div>
+
+

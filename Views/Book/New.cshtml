@@ -1,0 +1,29 @@
+﻿@model  List<BookClubMVC.Models.Book>
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Add a Book!</h2>
+    <a class="btn" href="/Book/List">Back to List</a>
+<!-- Form to add new book to database -->
+    <div class="formcontain">
+        <form class="newform" method="POST" action="/Book/New">
+            <div class="forminput">
+                <label for="Title">Title:</label>
+                <input type="text" id="Title" name="Title" />
+            </div>
+            <div class="forminput">
+                <label for="Author">Author:</label>
+                <input type="text" id="Author" name="Author" />
+            </div>
+            <div class="forminput">
+                <label for="Description">Description:</label>
+                <textarea id="Description" name="Description"></textarea>
+            </div>
+            <div class="submit">
+                <input class="btn" type="submit" value="Add Book">
+            </div>
+        </form>
+    </div>
+

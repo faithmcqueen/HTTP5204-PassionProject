@@ -1,0 +1,56 @@
+﻿@model BookClubMVC.Models.ViewModels.UpdateReview
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Your Review</h2>
+<div>
+    <a class="btn" href="/Book/Show/@Model.book.BookID">Back to Book</a>
+</div>
+<!-- Form to add new book to database -->
+<form method="POST" action="/Review/Update/@Model.review.ReviewID">
+    <div class="forminput">
+        <span>Select a Book to Review:</span>
+        <select id="BookID" type="text" name="BookID">
+            @{
+                foreach (var books in @Model.books)
+                {
+                    //use an if statement to carry over what has been selected for the member
+                    var selected = "";
+                    if (Model.book.BookID == books.BookID)
+                    {
+                        selected = "selected";
+                    }//add the selected variable into our option line of code
+
+                    <option @selected value="@books.BookID">@books.Title</option>
+
+                }
+            }
+        </select>
+    </div>
+    <div class="forminput">
+        <span>Select a Member:</span>
+        <select id="MemberID" type="text" name="MemberID">
+            @{
+                foreach (var members in @Model.members)
+                {
+                    //use an if statement to carry over what has been selected for the member
+                    var selected = "";
+                    if (Model.member.MemberID == members.MemberID)
+                    {
+                        selected = "selected";
+                    }//add the selected variable into our option line of code
+                    <option @selected value="@members.MemberID">@members.FisrtName @members.LastName</option>
+
+                }
+            }
+        </select>
+    </div>
+    <div class="forminput">
+        <span>Your Review:</span>
+        <textarea id="ReviewContent" name="ReviewContent">@Model.review.ReviewContent</textarea>
+    </div>
+    <div class="forminput">
+        <input type="submit" value="Update Review">
+    </div>
+</form>
