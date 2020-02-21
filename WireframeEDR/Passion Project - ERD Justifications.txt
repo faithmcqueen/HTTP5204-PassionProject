@@ -1,0 +1,32 @@
+﻿Reviews and Members - 1 to Many
+* A member can leave many reviews
+* A review can only be done by 1 member
+
+
+Reviews and Books - 1 to Many
+* A book can have many reviews
+* A review can only be about 1 book
+
+
+Members and Clubs - 1 to Many
+* One member can only belong to one club
+* One club can have many members
+
+
+Clubs and Books - Many to Many
+* A club can read many books
+* A book can be read by many clubs
+
+
+________________
+
+
+
+
+Anne decided to join a book club. She looked on the Book Club System web app to find a book club that would align with her schedule. She found GTA Books, which meets on Fridays at 3pm, (BookClubs) which works for her schedule the best. She clicks “Join” to join the team (Members), and fills out her information. Once she has joined the team, she can see that GTA Books is currently reading The Great Gatsby and Moby Dick (Books). Anne has already read The Great Gatsby, so she clicks on the title of the book to view the details of the book. On this page, she is able to leave a review (Reviews) and let her fellow book club members know what her thoughts on the book were so they can further discuss at the next meeting. 
+
+
+Anne may have read books that GTA Books hasn’t read yet that are in the list of all books. She is able to leave a review on as many books as she wants by finding them on the /Books/List page. 
+
+
+Susan decides to join a book club, however when she visits the app she sees that there are no book clubs that meet at a time she is available. She knows other people who want to join a book club but cannot meet at the existing club meeting times, so Susan decides to start her own book club called Humber Books. When Susan and her club decide which books they are reading, she can add those books by clicking “Update” and selecting a book from a drop down. Susan may want to read The Great Gatsby, which GTA Books has been reading (which is why she wanted to join a book club in the first place). She will select The Great Gatsby from the drop down, and it will display on the Humber Books page. The Humber Books page will also display all of the members of the club.

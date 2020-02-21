@@ -13,6 +13,7 @@ using BookClubMVC.Models;
 //using BookClubMVC.Models.ViewModels;
 using System.Diagnostics;
 using System.IO; //necessary for image uploading!!!!
+using BookClubMVC.Models.ViewModels;
 
 namespace BookClubMVC.Controllers
 {
@@ -128,13 +129,20 @@ namespace BookClubMVC.Controllers
         {
             //Pull the data from the database about specific book club
             BookClub selectedclub = db.BookClubs.SqlQuery("Select * from BookClubs where ClubID = @id", new SqlParameter("@id", id)).FirstOrDefault();
+            //get Book data for list of books
+            List<Book> Books = db.Books.SqlQuery("select * from Books").ToList();
 
-            return View(selectedclub);
+            //connect to ViewModel
+            UpdateClub UpdateBookViewModel = new UpdateClub();
+            UpdateBookViewModel.bookclub = selectedclub;
+            UpdateBookViewModel.books = Books;
+
+            return View(UpdateBookViewModel);
 
         }
         //Add the updated information once the user clicks Update button
         [HttpPost]
-        public ActionResult Update(int id, string ClubName, string MeetDay, string MeetTime)
+        public ActionResult Update(int id, string ClubName, string MeetDay, string MeetTime, int BookID)
         {
             //What happens when we submit the form? Update the database record
             string query = "update BookClubs set ClubName = @ClubName, MeetDay = @MeetDay, MeetTime = @MeetTime where ClubID = @id";
@@ -146,14 +154,23 @@ namespace BookClubMVC.Controllers
             sqlparams[2] = new SqlParameter("@MeetDay", MeetDay);
             sqlparams[3] = new SqlParameter("@MeetTime", MeetTime);
 
-            //execute the query
             db.Database.ExecuteSqlCommand(query, sqlparams);
+
+
+            //add book to club
+            string bookquery = "insert into BookxClubs (BookClubID, BookID) values (@id, @BookID)";
+            SqlParameter[] book_sqlparams = new SqlParameter[2];
+            book_sqlparams[0] = new SqlParameter("@id", id);
+            book_sqlparams[1] = new SqlParameter("@BookID", BookID);
+
+            //execute the query
+            db.Database.ExecuteSqlCommand(bookquery, book_sqlparams);
 
             //Test to see what data we're pushing through and if it's working
             Debug.WriteLine("Trying to update book club called " + ClubName + " which meets on " + MeetDay + " at " + MeetTime);
 
             //Send user back to the List of all books after submission
-            return RedirectToAction("List");
+            return Redirect("/BookClub/Show/" + id);
 
         }
 

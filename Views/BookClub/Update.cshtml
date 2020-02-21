@@ -1,23 +1,23 @@
-﻿@model BookClubMVC.Models.BookClub
+﻿@model BookClubMVC.Models.ViewModels.UpdateClub
 
 @{
     ViewBag.Title = "Update";
 }
 
-<h2>Update @Model.ClubName</h2>
+<h2>Update @Model.bookclub.ClubName</h2>
     <a class="btn" href="/BookClub/List">Back to List</a>
 
 <!-- Form to update the book information -->
 <div class="formcontain">
-    <form class="updateform" method="POST" action="/BookClub/Update/@Model.ClubID" enctype="multipart/form-data">
+    <form class="updateform" method="POST" action="/BookClub/Update/@Model.bookclub.ClubID" enctype="multipart/form-data">
         <div class="forminput">
             <label for="ClubName">Club Name:</label>
-            <input type="text" value="@Model.ClubName" id="ClubName" name="ClubName" />
+            <input type="text" value="@Model.bookclub.ClubName" id="ClubName" name="ClubName" />
         </div>
         <div class="forminput">
             <label for="MeetDay">Day of Meetings:</label>
             <select id="MeetDay" name="MeetDay">
-                <option value="@Model.MeetDay">@Model.MeetDay</option>
+                <option value="@Model.bookclub.MeetDay">@Model.bookclub.MeetDay</option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
                 <option value="Wednesday">Wednesday</option>
@@ -30,7 +30,21 @@
         </div>
         <div class="forminput">
             <label for="MeetTime">Meeting Time:</label>
-            <input type="text" id="MeetTime" name="MeetTime" value="@Model.MeetTime" />
+            <input type="text" id="MeetTime" name="MeetTime" value="@Model.bookclub.MeetTime" />
+        </div>
+        <div class="forminput">
+            <label for="BookID">Please Select a Book Club to Join:</label>
+            <select id="BookID" type="text" name="BookID">
+                @{
+                    // a rendering loop to list all of the available book clubs a member can join
+                    foreach (var books in Model.books)
+                    {
+                     
+                        <option value="@books.BookID">@books.Title</option>
+
+                    }
+                }
+            </select>
         </div>
         <div class="submit">
             <input class="btn" type="submit" value="Update Book Club">

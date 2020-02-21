@@ -237,6 +237,7 @@
     <Compile Include="Models\ViewModels\ShowBook.cs" />
     <Compile Include="Models\ViewModels\ShowBookClub.cs" />
     <Compile Include="Models\ViewModels\ShowMember.cs" />
+    <Compile Include="Models\ViewModels\UpdateClub.cs" />
     <Compile Include="Models\ViewModels\UpdateMember.cs" />
     <Compile Include="Models\ViewModels\UpdateReview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
